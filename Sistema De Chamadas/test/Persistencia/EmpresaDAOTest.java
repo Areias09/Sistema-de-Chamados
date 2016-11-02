@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -65,18 +66,29 @@ public class EmpresaDAOTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getEmpresas method, of class EmpresaDAO.
-     */
+    
+    @Test
+    public void insereEmpresaTest() {
+        Empresa e = new Empresa(1,"IBM");      
+        EmpresaDAO eDao = new EmpresaDAO();
+        Empresa ePronto = null;
+        eDao.put(e);
+         Collection<Empresa> empresas = eDao.getEmpresas();
+         for (Empresa empresa : empresas) {
+            if((empresa.getNumeroContrato() == e.getNumeroContrato()) && 
+                    (e.getNomeEmpresa().equals(empresa.getNomeEmpresa()))){
+                ePronto =empresa;
+            }           
+        }
+         Assert.assertEquals(ePronto, e);
+    }
+ 
+    
     @Test
     public void testGetEmpresas() {
-        System.out.println("getEmpresas");
-        EmpresaDAO instance = new EmpresaDAO();
-        Collection<Empresa> expResult = null;
-        Collection<Empresa> result = instance.getEmpresas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        EmpresaDAO eDao = new EmpresaDAO();
+         Collection<Empresa> empresas = eDao.getEmpresas();     
+         Assert.assertTrue(empresas.size() > 0);
     }
 
     /**
@@ -85,12 +97,9 @@ public class EmpresaDAOTest {
     @Test
     public void testVoltaEmpresa() {
         System.out.println("voltaEmpresa");
-        EmpresaDAO instance = new EmpresaDAO();
-        HashMap<Long, Empresa> expResult = null;
-        HashMap<Long, Empresa> result = instance.voltaEmpresa();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        EmpresaDAO eDao = new EmpresaDAO();     
+        HashMap<Long,Empresa> retorno = eDao.voltaEmpresa();       
+        Assert.assertNotNull(retorno);        
     }
     
 }

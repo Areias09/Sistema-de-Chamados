@@ -6,9 +6,11 @@
 package Persistencia;
 
 import entidade.ClienteEmpresa;
+import entidade.Empresa;
 import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,47 +41,37 @@ public class ClienteDAOTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of validarCPF method, of class ClienteDAO.
-     */
     @Test
     public void testValidarCPF() {
-        System.out.println("validarCPF");
-        long cpf = 0L;
-        ClienteDAO instance = new ClienteDAO();
-        boolean expResult = false;
-        boolean result = instance.validarCPF(cpf);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ClienteDAO clDao = new ClienteDAO();
+        Empresa e = new Empresa(3, "Apple");
+        ClienteEmpresa ce = new ClienteEmpresa(1, e, 5, "Microsoft", 2);
+       clDao.put(ce);      
+        ClienteEmpresa cEmp2 = clDao.voltaCashCliente().get(ce.getCpf());       
+        if(ce.getCpf() == cEmp2.getCpf()){
+        Assert.assertTrue(true);
+        }else{
+            Assert.assertFalse(false);
+        }
     }
 
-    /**
-     * Test of gerarCodigo method, of class ClienteDAO.
-     */
     @Test
     public void testGerarCodigo() {
-        System.out.println("gerarCodigo");
-        ClienteDAO instance = new ClienteDAO();
-        int expResult = 0;
-        int result = instance.gerarCodigo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ClienteDAO clDao = new ClienteDAO();
+        int codigo = clDao.gerarCodigo();
+        Assert.assertNotNull(codigo);
+
     }
 
-    /**
-     * Test of voltaCashCliente method, of class ClienteDAO.
-     */
     @Test
-    public void testVoltaCashCliente() {
-        System.out.println("voltaCashCliente");
-        ClienteDAO instance = new ClienteDAO();
-        HashMap<Long, ClienteEmpresa> expResult = null;
-        HashMap<Long, ClienteEmpresa> result = instance.voltaCashCliente();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void inserirClienteTest() {
+        ClienteDAO clDao = new ClienteDAO();
+        Empresa e = new Empresa(5, "Sony");
+        ClienteEmpresa ce = new ClienteEmpresa(5, e, 2, "Samsung", 3);
+        clDao.put(ce);
+        ClienteEmpresa ce2 = clDao.get(3L);
+        Assert.assertEquals(ce, ce2);
+
     }
 
     /**

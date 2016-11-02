@@ -17,22 +17,22 @@ import static org.junit.Assert.*;
  * @author 31539092
  */
 public class ChamadoTest {
-    
+
     public ChamadoTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -564,5 +564,33 @@ public class ChamadoTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
     
+        @Test
+    public void CadastroProblemaRedeTeste(){
+        Tecnico t = new Tecnico("Gabriel", 000);
+        Empresa e = new Empresa(159, "IBM");
+        ClienteEmpresa ce = new ClienteEmpresa(5, e, 435268558, "Algusto", 123);
+        Chamado c = new Chamado(5, "Título", "Descrição", 5, t, ce, "Linux", "Ubuntu", "Wireless", "192.168.0.1");
+        
+        assertNotNull(c.getData());
+        assertNotNull(c.getHora());
+        assertEquals("Título", c.getTitulo());
+        assertEquals("Descrição", c.getDescricao());
+        assertEquals(3, c.getPrioridade());
+        assertEquals("Conexão de Rede", c.getTipoProblema());
+        assertEquals(t, c.getTecnico());
+        assertEquals(ce, c.getCliente());
+        
+        assertEquals("Linux", c.getSistemaOperacional());
+        assertEquals("Ubuntu", c.getVersaoSO());
+        assertEquals("Wireless", c.getTipoConexao());
+        
+        assertEquals("192.168.0.1", c.getEnderecoRede());
+        assertEquals("Iniciado", c.getStatus());
+
+    }
+
 }
+
+

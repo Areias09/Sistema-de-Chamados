@@ -6,10 +6,15 @@
 package Persistencia;
 
 import entidade.Chamado;
+import entidade.ClienteEmpresa;
+import entidade.Empresa;
 import entidade.RegistroChamado;
+import entidade.Tecnico;
+import entidade.TipoConexao;
 import java.util.Collection;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -149,4 +154,46 @@ public class ChamadoDAOTest {
         fail("The test case is a prototype.");
     }
     
+     @Test
+    public void ChamadoModenTest() {
+        Tecnico t = new Tecnico("Gabriel", 147);
+        Empresa e = new Empresa(1, "IBM");
+        ClienteEmpresa ce = new ClienteEmpresa(Integer.SIZE, e, 12123, "Areias", 123);
+        Chamado c = new Chamado(5, "Problema", "Descrição", 3, t, ce, "Linux", "Ubuntu", "" + TipoConexao.CaboModen, "147");
+        ChamadoDAO cDao = new ChamadoDAO();
+        cDao.put(c);
+        Assert.assertTrue(cDao.getChamados().size() >= 1);
+    }
+    
+    @Test
+    public void ChamadoAdslTest() {
+        Tecnico t = new Tecnico("Gabriel", 147);
+        Empresa e = new Empresa(1, "IBM");
+        ClienteEmpresa ce = new ClienteEmpresa(Integer.SIZE, e, 1324L, "Areias", 123);
+        Chamado c = new Chamado(5, "Problema", "Descrição", 3, t, ce, "Linux", "Ubuntu", "" + TipoConexao.ADSL, "147");
+        ChamadoDAO cDao = new ChamadoDAO();
+        cDao.put(c);
+        Assert.assertTrue(cDao.getChamados().size() >= 1);
+    }
+    
+    @Test
+    public void inserirChamadoModenTest() {
+       Tecnico t = new Tecnico("Gabriel", 147);
+        Empresa e = new Empresa(1, "IBM");
+        ClienteEmpresa ce = new ClienteEmpresa(Integer.SIZE, e, 1324L, "Areias", 123);
+        Chamado c = new Chamado(5, "Problema", "Descrição", 3, t, ce, "Linux", "Ubuntu", "" + TipoConexao.CaboModen, "147");
+        ChamadoDAO cDao= new ChamadoDAO();
+        cDao.put(c);
+
+        Chamado c2 = cDao.get(cDao.gerarCodigo() - 1);
+
+        Assert.assertEquals(c.getTitulo(), c2.getTitulo());
+        Assert.assertEquals(c.getDescricao(), c2.getDescricao());
+        Assert.assertEquals(c.getPrioridade(), c2.getPrioridade());
+        Assert.assertEquals(c.getTecnico().getNome(), c2.getTecnico().getNome());
+        Assert.assertEquals(c.getCliente().getCpf(), c2.getCliente().getCpf());
+        Assert.assertEquals(c.getSistemaOperacional(), c2.getSistemaOperacional());
+        Assert.assertEquals(c.getTipoConexao(), c2.getTipoConexao());
+        Assert.assertEquals(c.getEnderecoRede(), c2.getEnderecoRede());
+    }
 }
