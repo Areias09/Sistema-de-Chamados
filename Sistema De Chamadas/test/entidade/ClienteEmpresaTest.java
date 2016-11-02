@@ -42,13 +42,9 @@ public class ClienteEmpresaTest {
      */
     @Test
     public void testGetCodigo() {
-        System.out.println("getCodigo");
-        ClienteEmpresa instance = null;
-        Integer expResult = null;
-        Integer result = instance.getCodigo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Empresa e = new Empresa(312134, "Askov");
+        ClienteEmpresa ce = new ClienteEmpresa(3534,e,54689,"Roberto",67485943);
+        assertEquals(ce.getCodigo(),ce.getCodigo());
     }
 
     /**
@@ -56,12 +52,10 @@ public class ClienteEmpresaTest {
      */
     @Test
     public void testSetCodigo() {
-        System.out.println("setCodigo");
-        Integer codigo = null;
-        ClienteEmpresa instance = null;
-        instance.setCodigo(codigo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         Empresa e = new Empresa(312134, "Askov");
+        ClienteEmpresa ce = new ClienteEmpresa(3534,e,54689,"Roberto",67485943);
+        ce.setCodigo(312134);
+       assertEquals(ce.getCodigo(),ce.getCodigo());
     }
 
     /**
@@ -69,13 +63,10 @@ public class ClienteEmpresaTest {
      */
     @Test
     public void testGetCpf() {
-        System.out.println("getCpf");
-        ClienteEmpresa instance = null;
-        long expResult = 0L;
-        long result = instance.getCpf();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Empresa e = new Empresa(312134, "Askov");
+        ClienteEmpresa ce = new ClienteEmpresa(3534,e,54689,"Roberto",67485943);
+        
+        assertEquals(54689,ce.getCpf());
     }
 
     /**
@@ -83,12 +74,10 @@ public class ClienteEmpresaTest {
      */
     @Test
     public void testSetCpf() {
-        System.out.println("setCpf");
-        long cpf = 0L;
-        ClienteEmpresa instance = null;
-        instance.setCpf(cpf);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Empresa e = new Empresa(312134, "Askov");
+        ClienteEmpresa ce = new ClienteEmpresa(3534,e,54689,"Roberto",67485943);
+        ce.setCpf(312134);
+        assertEquals(312134,ce.getCpf());
     }
 
     /**
@@ -96,13 +85,9 @@ public class ClienteEmpresaTest {
      */
     @Test
     public void testGetEmpresa() {
-        System.out.println("getEmpresa");
-        ClienteEmpresa instance = null;
-        Empresa expResult = null;
-        Empresa result = instance.getEmpresa();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      Empresa e = new Empresa(312134, "Askov");
+        ClienteEmpresa ce = new ClienteEmpresa(3534,e,54689,"Roberto",67485943);
+        assertEquals(e, ce.getEmpresa());
     }
 
     /**
@@ -110,13 +95,9 @@ public class ClienteEmpresaTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        ClienteEmpresa instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Empresa e = new Empresa(312134, "Askov");
+        ClienteEmpresa ce = new ClienteEmpresa(3534,e,54689,"Roberto",67485943);
+        assertEquals("312134,Askov,54689,Roberto",ce.toString());
     }
     
 }

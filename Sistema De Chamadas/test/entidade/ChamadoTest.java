@@ -37,18 +37,20 @@ public class ChamadoTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getTecnico method, of class Chamado.
-     */
+    Empresa e = new Empresa( 123 ,"Absolut");
+    
+    ClienteEmpresa ce = new ClienteEmpresa(123,e,1234567,"Cleber",9876541);
+    
+    Tecnico t = new Tecnico("Alfredo",2150);
+    
+    Chamado c = new Chamado(05,"problema na instalação","erro na instalação do netbeans",3,t,ce,"Windows","10","Cabo","192.168.0.1");
+    Chamado c2 = new Chamado("banco de dados","não é possivel acessar o banco de dados",1,t,ce,"Windows","10","BancoA");
+    Chamado c3 = new Chamado("problema de rede","não conecta ao wifi",2,t,ce,"Linux","Ubuntu","HD",5);
+
+    
     @Test
     public void testGetTecnico() {
-        System.out.println("getTecnico");
-        Chamado instance = null;
-        Tecnico expResult = null;
-        Tecnico result = instance.getTecnico();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         assertEquals(t,c.getTecnico());
     }
 
     /**
@@ -56,13 +58,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetCodigo() {
-        System.out.println("getCodigo");
-        Chamado instance = null;
-        int expResult = 0;
-        int result = instance.getCodigo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         assertEquals(05,c.getCodigo());
     }
 
     /**
@@ -70,12 +66,8 @@ public class ChamadoTest {
      */
     @Test
     public void testSetCodigo() {
-        System.out.println("setCodigo");
-        int codigo = 0;
-        Chamado instance = null;
-        instance.setCodigo(codigo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         c.setCodigo(01);
+        assertEquals(01,c.getCodigo());
     }
 
     /**
@@ -83,39 +75,24 @@ public class ChamadoTest {
      */
     @Test
     public void testSetTecnico() {
-        System.out.println("setTecnico");
-        Tecnico tecnico = null;
-        Chamado instance = null;
-        instance.setTecnico(tecnico);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Tecnico tec = new Tecnico("Valdívia",3164975);
+        c.setTecnico(tec);
+        assertEquals(tec,c.getTecnico());
     }
 
-    /**
-     * Test of getCliente method, of class Chamado.
-     */
+   
     @Test
     public void testGetCliente() {
-        System.out.println("getCliente");
-        Chamado instance = null;
-        ClienteEmpresa expResult = null;
-        ClienteEmpresa result = instance.getCliente();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(ce,c.getCliente());
     }
 
-    /**
-     * Test of setCliente method, of class Chamado.
-     */
+    
     @Test
     public void testSetCliente() {
-        System.out.println("setCliente");
-        ClienteEmpresa cliente = null;
-        Chamado instance = null;
-        instance.setCliente(cliente);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ClienteEmpresa ce2 = new ClienteEmpresa(789,e,101012,"Calebe",201265);
+         
+        c.setCliente(ce2);
+        assertEquals(ce2,c.getCliente());
     }
 
     /**
@@ -123,13 +100,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetStatus() {
-        System.out.println("getStatus");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getStatus();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("Começo",c.getStatus());
     }
 
     /**
@@ -137,12 +108,8 @@ public class ChamadoTest {
      */
     @Test
     public void testSetStatus() {
-        System.out.println("setStatus");
-        String status = "";
-        Chamado instance = null;
-        instance.setStatus(status);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        c.setStatus("Pronto");
+        assertEquals("Pronto",c.getStatus());
     }
 
     /**
@@ -150,13 +117,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetTipoProblema() {
-        System.out.println("getTipoProblema");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getTipoProblema();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("Banco de Dados",c2.getTipoProblema());
     }
 
     /**
@@ -164,12 +125,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetTipoProblema() {
-        System.out.println("setTipoProblema");
-        String tipoProblema = "";
-        Chamado instance = null;
-        instance.setTipoProblema(tipoProblema);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("Problema de instalação",c3.getTipoProblema());
     }
 
     /**
@@ -177,13 +133,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetData() {
-        System.out.println("getData");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getData();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -191,12 +141,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetData() {
-        System.out.println("setData");
-        String data = "";
-        Chamado instance = null;
-        instance.setData(data);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -204,13 +149,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetHora() {
-        System.out.println("getHora");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getHora();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -218,12 +157,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetHora() {
-        System.out.println("setHora");
-        String hora = "";
-        Chamado instance = null;
-        instance.setHora(hora);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -231,13 +165,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetTitulo() {
-        System.out.println("getTitulo");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getTitulo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -245,12 +173,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetTitulo() {
-        System.out.println("setTitulo");
-        String titulo = "";
-        Chamado instance = null;
-        instance.setTitulo(titulo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -258,13 +181,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetDescricao() {
-        System.out.println("getDescricao");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getDescricao();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -272,12 +189,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetDescricao() {
-        System.out.println("setDescricao");
-        String descricao = "";
-        Chamado instance = null;
-        instance.setDescricao(descricao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -285,13 +197,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetPrioridade() {
-        System.out.println("getPrioridade");
-        Chamado instance = null;
-        int expResult = 0;
-        int result = instance.getPrioridade();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -299,12 +205,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetPrioridade() {
-        System.out.println("setPrioridade");
-        int prioridade = 0;
-        Chamado instance = null;
-        instance.setPrioridade(prioridade);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+ 
     }
 
     /**
@@ -312,13 +213,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetSistemaOperacional() {
-        System.out.println("getSistemaOperacional");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getSistemaOperacional();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("Linux",c3.getSistemaOperacional());
     }
 
     /**
@@ -326,12 +221,8 @@ public class ChamadoTest {
      */
     @Test
     public void testSetSistemaOperacional() {
-        System.out.println("setSistemaOperacional");
-        String sistemaOperacional = "";
-        Chamado instance = null;
-        instance.setSistemaOperacional(sistemaOperacional);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        c.setSistemaOperacional("Windows");
+        assertEquals("Windows",c.getSistemaOperacional());
     }
 
     /**
@@ -339,13 +230,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetVersaoSO() {
-        System.out.println("getVersaoSO");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getVersaoSO();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       assertEquals("Ubuntu",c3.getVersaoSO());
     }
 
     /**
@@ -353,12 +238,8 @@ public class ChamadoTest {
      */
     @Test
     public void testSetVersaoSO() {
-        System.out.println("setVersaoSO");
-        String versaoSO = "";
-        Chamado instance = null;
-        instance.setVersaoSO(versaoSO);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        c3.setVersaoSO("Debian");
+        assertEquals("Debian",c3.getVersaoSO());
     }
 
     /**
@@ -366,13 +247,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetBancoDeDados() {
-        System.out.println("getBancoDeDados");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getBancoDeDados();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         assertEquals("BancoA",c2.getBancoDeDados());
     }
 
     /**
@@ -380,12 +255,8 @@ public class ChamadoTest {
      */
     @Test
     public void testSetBancoDeDados() {
-        System.out.println("setBancoDeDados");
-        String bancoDeDados = "";
-        Chamado instance = null;
-        instance.setBancoDeDados(bancoDeDados);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        c2.setBancoDeDados("BD2");
+        assertEquals("BD2",c2.getBancoDeDados());
     }
 
     /**
@@ -393,13 +264,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetCausaProblema() {
-        System.out.println("getCausaProblema");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getCausaProblema();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -407,12 +272,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetCausaProblema() {
-        System.out.println("setCausaProblema");
-        String causaProblema = "";
-        Chamado instance = null;
-        instance.setCausaProblema(causaProblema);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -420,13 +280,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetSolucaoProblema() {
-        System.out.println("getSolucaoProblema");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getSolucaoProblema();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -434,12 +288,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetSolucaoProblema() {
-        System.out.println("setSolucaoProblema");
-        String solucaoProblema = "";
-        Chamado instance = null;
-        instance.setSolucaoProblema(solucaoProblema);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -447,13 +296,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetTipoConexao() {
-        System.out.println("getTipoConexao");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getTipoConexao();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+ 
     }
 
     /**
@@ -461,12 +304,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetTipoConexao() {
-        System.out.println("setTipoConexao");
-        String tipoConexao = "";
-        Chamado instance = null;
-        instance.setTipoConexao(tipoConexao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -474,13 +312,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetEnderecoRede() {
-        System.out.println("getEnderecoRede");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getEnderecoRede();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -488,12 +320,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetEnderecoRede() {
-        System.out.println("setEnderecoRede");
-        String enderecoRede = "";
-        Chamado instance = null;
-        instance.setEnderecoRede(enderecoRede);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -501,13 +328,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetOperacao() {
-        System.out.println("getOperacao");
-        Chamado instance = null;
-        String expResult = "";
-        String result = instance.getOperacao();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -515,12 +336,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetOperacao() {
-        System.out.println("setOperacao");
-        String operacao = "";
-        Chamado instance = null;
-        instance.setOperacao(operacao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+     
     }
 
     /**
@@ -528,13 +344,7 @@ public class ChamadoTest {
      */
     @Test
     public void testGetDuracaoOperacao() {
-        System.out.println("getDuracaoOperacao");
-        Chamado instance = null;
-        double expResult = 0.0;
-        double result = instance.getDuracaoOperacao();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -542,12 +352,7 @@ public class ChamadoTest {
      */
     @Test
     public void testSetDuracaoOperacao() {
-        System.out.println("setDuracaoOperacao");
-        double duracaoOperacao = 0.0;
-        Chamado instance = null;
-        instance.setDuracaoOperacao(duracaoOperacao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -555,40 +360,7 @@ public class ChamadoTest {
      */
     @Test
     public void testEquals() {
-        System.out.println("equals");
-        Object c = null;
-        Chamado instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(c);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    
-        @Test
-    public void CadastroProblemaRedeTeste(){
-        Tecnico t = new Tecnico("Gabriel", 000);
-        Empresa e = new Empresa(159, "IBM");
-        ClienteEmpresa ce = new ClienteEmpresa(5, e, 435268558, "Algusto", 123);
-        Chamado c = new Chamado(5, "Título", "Descrição", 5, t, ce, "Linux", "Ubuntu", "Wireless", "192.168.0.1");
         
-        assertNotNull(c.getData());
-        assertNotNull(c.getHora());
-        assertEquals("Título", c.getTitulo());
-        assertEquals("Descrição", c.getDescricao());
-        assertEquals(3, c.getPrioridade());
-        assertEquals("Conexão de Rede", c.getTipoProblema());
-        assertEquals(t, c.getTecnico());
-        assertEquals(ce, c.getCliente());
-        
-        assertEquals("Linux", c.getSistemaOperacional());
-        assertEquals("Ubuntu", c.getVersaoSO());
-        assertEquals("Wireless", c.getTipoConexao());
-        
-        assertEquals("192.168.0.1", c.getEnderecoRede());
-        assertEquals("Iniciado", c.getStatus());
-
     }
 
 }
