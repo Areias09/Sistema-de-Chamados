@@ -42,13 +42,8 @@ public class EmpresaTest {
      */
     @Test
     public void testGetNumeroContrato() {
-        System.out.println("getNumeroContrato");
-        Empresa instance = null;
-        long expResult = 0L;
-        long result = instance.getNumeroContrato();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Empresa e = new Empresa(192138,"Intel");
+        assertEquals(192168,e.getNumeroContrato());
     }
 
     /**
@@ -56,12 +51,9 @@ public class EmpresaTest {
      */
     @Test
     public void testSetNumeroContrato() {
-        System.out.println("setNumeroContrato");
-        long numeroContrato = 0L;
-        Empresa instance = null;
-        instance.setNumeroContrato(numeroContrato);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Empresa e = new Empresa(192168,"Intel");
+        e.setNumeroContrato(192168);
+        assertEquals(192168,e.getNumeroContrato());
     }
 
     /**
@@ -69,13 +61,8 @@ public class EmpresaTest {
      */
     @Test
     public void testGetNomeEmpresa() {
-        System.out.println("getNomeEmpresa");
-        Empresa instance = null;
-        String expResult = "";
-        String result = instance.getNomeEmpresa();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Empresa e = new Empresa(192138,"Intel");
+        assertEquals("Intel",e.getNomeEmpresa());
     }
 
     /**
@@ -83,12 +70,9 @@ public class EmpresaTest {
      */
     @Test
     public void testSetNomeEmpresa() {
-        System.out.println("setNomeEmpresa");
-        String nomeEmpresa = "";
-        Empresa instance = null;
-        instance.setNomeEmpresa(nomeEmpresa);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         Empresa e = new Empresa(192138,"Intel");
+         e.setNomeEmpresa("AMD");
+         assertEquals("AMD",e.getNomeEmpresa());
     }
 
     /**
@@ -96,13 +80,8 @@ public class EmpresaTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Empresa instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+         Empresa em = new Empresa(168192,"AMD");
+        assertEquals(" 168192 - AMD ",em.toString());
     }
     
 }

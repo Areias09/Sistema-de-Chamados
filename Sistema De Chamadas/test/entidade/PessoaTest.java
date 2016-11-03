@@ -37,31 +37,19 @@ public class PessoaTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getNome method, of class Pessoa.
-     */
     @Test
     public void testGetNome() {
-        System.out.println("getNome");
-        Pessoa instance = null;
-        String expResult = "";
-        String result = instance.getNome();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Pessoa a = new Pessoa("Tche Tche", 12457896);
+        a.setNome("Gabriel");
+        assertEquals("Gabriel", a.getNome());
     }
 
-    /**
-     * Test of setNome method, of class Pessoa.
-     */
+
     @Test
     public void testSetNome() {
-        System.out.println("setNome");
-        String nome = "";
-        Pessoa instance = null;
-        instance.setNome(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Pessoa a = new Pessoa("Tche Tche", 12457896);
+        a.setNome("Leonardo");
+        assertEquals("Leonardo", a.getNome());
     }
 
     /**
@@ -69,13 +57,8 @@ public class PessoaTest {
      */
     @Test
     public void testGetTelefone() {
-        System.out.println("getTelefone");
-        Pessoa instance = null;
-        long expResult = 0L;
-        long result = instance.getTelefone();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Pessoa b = new Pessoa("Ingrid", 99895588);
+        assertEquals(99895588 ,b.getTelefone());
     }
 
     /**
@@ -83,12 +66,9 @@ public class PessoaTest {
      */
     @Test
     public void testSetTelefone() {
-        System.out.println("setTelefone");
-        long telefone = 0L;
-        Pessoa instance = null;
-        instance.setTelefone(telefone);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Pessoa c = new Pessoa("Bibiana", 99740204);
+        c.setTelefone(99531223);
+        assertEquals(99531223, c.getTelefone());
     }
     
 }
