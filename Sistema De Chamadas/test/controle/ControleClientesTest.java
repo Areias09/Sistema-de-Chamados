@@ -20,22 +20,22 @@ import static org.junit.Assert.*;
  * @author 31539092
  */
 public class ControleClientesTest {
-    
+
     public ControleClientesTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,57 +43,21 @@ public class ControleClientesTest {
     /**
      * Test of getClienteDAO method, of class ControleClientes.
      */
-    @Test
+   @Test
     public void testGetClienteDAO() {
-        System.out.println("getClienteDAO");
-        ControleClientes instance = new ControleClientes();
-        ClienteDAO expResult = null;
-        ClienteDAO result = instance.getClienteDAO();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       ControladorPrincipal cp = new ControladorPrincipal();
+       ControleClientes cc = cp.getCtrClientes();
+       ClienteDAO cDao= cc.getClienteDAO();
+       assertEquals(true,cDao instanceof ClienteDAO);
     }
 
-    /**
-     * Test of cadastrarCliente method, of class ControleClientes.
-     */
-    @Test
-    public void testCadastrarCliente() {
-        System.out.println("cadastrarCliente");
-        ControleClientes instance = new ControleClientes();
-        instance.cadastrarCliente();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of incluiNovoCliente method, of class ControleClientes.
-     */
     @Test
     public void testIncluiNovoCliente() {
-        System.out.println("incluiNovoCliente");
-        Empresa empresa = null;
-        long cpf = 0L;
-        String nome = "";
-        long telefone = 0L;
-        ControleClientes instance = new ControleClientes();
-        ClienteEmpresa expResult = null;
-        ClienteEmpresa result = instance.incluiNovoCliente(empresa, cpf, nome, telefone);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ControladorPrincipal cp = new ControladorPrincipal();
+        ControleClientes cc = cp.getCtrClientes();
+        ClienteEmpresa c = cc.incluiNovoCliente(new Empresa(2, "Doritos"), (long) 31649782, "Samsung", (long) 21658782);
+        assertEquals((long) 1234567891,c.getCpf());
     }
 
-    /**
-     * Test of fecharTelaCliente method, of class ControleClientes.
-     */
-    @Test
-    public void testFecharTelaCliente() {
-        System.out.println("fecharTelaCliente");
-        ControleClientes instance = new ControleClientes();
-        instance.fecharTelaCliente();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
